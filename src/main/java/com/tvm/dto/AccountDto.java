@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 public class AccountDto {
     @NotBlank(message = "Tên tài khoản không được bỏ trống")
     private String account;
-    @Size(min = 8, message = "Mật khẩu phải nhiều hơn 8 kí tự")
+    @Size(min = 6, message = "Mật khẩu phải nhiều hơn 6 kí tự")
     private String password;
 
     public String getAccount() {

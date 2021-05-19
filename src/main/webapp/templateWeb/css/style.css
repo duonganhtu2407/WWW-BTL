@@ -124,14 +124,15 @@ h1.b1,h2.b2,h3.b3 {
     font-weight: 100;
     padding: 0.5em 1.3em;
 	text-decoration:none;
-background:#ed645c;	
+background:#0f74a8;
 display:inline-block;
 }
 .logo h1 a:hover{
 	text-decoration:none;
 }
 .logo{
-	float:left;	
+	float:left;
+	background: #0f74a8;
 }
  .top-nav {
   width: 42%;
@@ -458,7 +459,7 @@ span.disc {
 }
 /*----subscribe---*/
 .subscribe{
-	background:#ed645c;
+	background:#0f74a8;
 	text-align:center;
 	padding:2em 0;
 }

@@ -30,8 +30,7 @@
         <div class="footer-grids">
             <div class="col-md-3 about-us">
                 <h3>Hỗ Trợ Khách Hàng</h3>
-                <p>Chuyên cung cấp các sản phẩm nội thất với chất lượng cao , gía cả hợp lý, phù hợp với người tiêu
-                    dùng</p>
+                <p>Hotline:0999999999</p>
             </div>
             <div class="col-md-3 ftr-grid">
                 <h3>Thông tin</h3>
@@ -60,20 +59,5 @@
             </div>
             <div class="clearfix"></div>
         </div>
-    </div>
-</div>
-
-<div class="copywrite">
-    <div class="container">
-        <div class="copy">
-        </div>
-        <div class="social">
-            <a href="#"><i class="facebook"></i></a>
-            <a href="#"><i class="twitter"></i></a>
-            <a href="#"><i class="dribble"></i></a>
-            <a href="#"><i class="google"></i></a>
-            <a href="#"><i class="youtube"></i></a>
-        </div>
-        <div class="clearfix"></div>
     </div>
 </div>

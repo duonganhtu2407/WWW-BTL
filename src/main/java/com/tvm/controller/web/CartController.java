@@ -189,17 +189,11 @@ public class CartController {
 
             NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
             StringBuilder sendText = new StringBuilder();
-            String from = "toychildshop@gmail.com";
-            //	List<ProductDto> listProduct = new ArrayList<ProductDto>();
+            String from = "shopmtv123@gmail.com";
 
             //format mail
-            sendText.append("<style type=\"text/css\">\n" + "table {\n" + "	border-collapse: collapse;\n"
-                    + "	width: 100%;\n" + "	}\n" + "	th,td{\n" + "		line-height: 25px;\n"
-                    + "		border: 1px solid black;\n" + "		padding:5px;\n" + "	}\n" + "	th{\n"
-                    + "		background-color: gray;\n" + "	}\n" + "	</style>");
             sendText.append(
-                    "<p>Cảm ơn bạn đã mua hàng tại ShopToyHVN ! Mặt hàng của bạn sẽ được giao trong 2-3 ngày ! Cảm ơn bạn : </p>");
-            sendText.append("<h1 style=" + "color:blue;" + ">ToyHVN</h1>");
+                    "<p>Quý khách đã đặt hàng thành công. Chúng tôi sẽ liên lạc với quý khách khi hàng đã giao đến </p>");
             //
 
             MimeMessage mail = mailSender.createMimeMessage();
@@ -207,76 +201,23 @@ public class CartController {
 
             SessionUser sessionUser = (SessionUser) session.getAttribute("sessionUser");
             UserDto userDtoMail = userService.findByIdUserService(sessionUser.getUserId());
-            //UserDto userDto = new UserDto();
-
-//			orderdto.setTotalMoney(Long.parseLong(gioHang.getTotalPrice().replace(",", "")));
-//			orderdto.setStatus(false);
-//			userDto.setId(sessionUser.getUserId());
-//			orderdto.setUserDto(userDto);
-
-//			orderdto = orderService.saveOderService(orderdto);
 
             //format mail
-            //sendText.append("<p> Số lượng: " + orderdto.getId() + "</p>");
-            sendText.append("<p> Ngày mua: " + orderdto.getCreatedDate() + "</p>");
-            sendText.append("<p> Người gửi : " + userDtoMail.getFullName() + "</p>");
-            sendText.append("<p> Người mua: " + orderdto.getReceiver() + "</p>");
+            sendText.append("<h3>THÔNG TIN ĐẶT HÀNG</3>");
+            sendText.append("<p> Người thanh toán : " + userDtoMail.getFullName() + "</p>");
+            sendText.append("<p> Người nhận: " + orderdto.getReceiver() + "</p>");
             sendText.append("<p> Địa chỉ giao hàng: " + orderdto.getDeliveryAddress() + "</p>");
             sendText.append("<p> Số điện thoại người nhận : " + orderdto.getPhone() + "</p>");
             sendText.append("<p> Nội dung : " + orderdto.getContent() + "</p>");
-            sendText.append("<table><tr>");
-            sendText.append("<th>Mã</th>").append("<th>Tên Sản Phẩm</th>").append("<th>Giá</th>")
-                    .append("<th>Giảm giá</th>").append("<th>Số Lượng</th>").append("<th>Tổn Tiền</th>");
-            sendText.append("</tr>");
-            //
-
-            //kiem tra so luong hang co phu hop voi kho hay ko
-            //		for (ProductOrderDto po : gioHang.getGioHangs()) {
-            //			ProductDto productDto = productService.findProductByIdService(po.getIdProduct());
-            //			if(productDto.getCount()>=po.getCount()) {
-            //				productDto.setCount(productDto.getCount() -po.getCount());
-            //				listProduct.add(productDto);
-
-//					//format mail
-//					sendText.append("<tr>");
-//					sendText.append("<td>").append(productDto.getId().intValue()).append("</td>");
-//					sendText.append("<td>").append(productDto.getName()).append("</td>");
-//					sendText.append("<td>").append(nf.format(productDto.getPrice().longValue())).append("</td>");
-//					sendText.append("<td>").append(productDto.getDiscount()).append("</td>");
-//					sendText.append("<td>").append(po.getCount()).append("</td>");
-//					sendText.append("<td>").append(nf.format(po.getPrice().longValue())).append("</td>");
-//					sendText.append("</tr>");
-//					//
-//				}else {
-//					orderService.deleteOrderService(orderdto.getId());
-//					map.addAttribute("message","Sản Phẩm "+productDto.getName()+" Hết Hàng");
-//					return "redirect:/cart";
-//				}
-//			
-//			}
-//			//format mail
-//			sendText.append("</table>");
-//			sendText.append("<p style='color:red;'> Tổng giá tiền : ").append(gioHang.getTotalPrice()).append(" VND")
-//					.append("</p>");
-//			//
-//			int i = 0;
-//			for(ProductDto pDto : listProduct ) {
-//				gioHang.getGioHangs().get(i).setIdOrder(orderdto.getId());
-//				productOrderService.saveProductOderService(gioHang.getGioHangs().get(i));
-//				productService.saveProductService(pDto);
-//				i++;
-//			}
-
             helper.setFrom(from, from);
             helper.setTo(userDtoMail.getEmail());
             helper.setReplyTo(from, from);
-            helper.setSubject("Thank You !");
+            helper.setSubject("ShopMTV");
             helper.setText(sendText.toString(), true);
 
             mailSender.send(mail);
 
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
         session = request.getSession(false);

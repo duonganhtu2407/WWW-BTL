@@ -20,7 +20,7 @@
 <div class="header-top">
     <div class="header-bottom">
         <div class="logo">
-            <h1><a href="${homeURl}">cc</a></h1>
+            <h1><a href="${homeURl}">ShopMTV</a></h1>
         </div>
         <!---->
         <div class="top-nav">
@@ -96,7 +96,7 @@
     </div>
     <%} else {%>
 </div>
-<h3 class="b3">
+<h3>
     <a href="<c:url value="${loginUrl}"/>"><span class="label label-info">Đăng Nhập</span></a>
     <a href="${user_regis}"><span class="label label-info">Đăng ký</span></a>
 </h3>
@@ -104,34 +104,5 @@
 <!---->
 </div>
 <%}%>
-
-
 <div class="clearfix"></div>
-</div>
-
-<div class="slider">
-    <div class="callbacks_container">
-        <ul class="rslides" id="slider">
-            <li>
-                <div class="banner1">
-                    <div class="banner-info">
-
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="banner2">
-                    <div class="banner-info">
-
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="banner3">
-                    <div class="banner-info">
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
 </div>

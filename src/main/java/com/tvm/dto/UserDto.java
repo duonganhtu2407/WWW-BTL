@@ -10,21 +10,21 @@ import com.tvm.model.Role;
 
 public class UserDto extends AbtractDto<UserDto> {
 
-    @NotBlank(message = "Họ tên không được để trống")
+    @NotBlank(message = "Họ tên bắt buộc")
     private String fullName;
 
     @Pattern(regexp = "\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b",
-            message = "Email không hợp lệ ! (abc@gmail.com)")
+            message = "Email không hợp lệ")
     private String email;
 
     @Pattern(regexp = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$",
             message = "Số điện thoại không hợp lệ! (Số điện thoại có 10 hoặc 11 chữ số)")
     private String phone;
 
-    @NotBlank(message = "Tên tài khoản không được bỏ trống")
+    @NotBlank(message = "Tên tài khoản bắt buộc")
     private String account;
 
-    @Size(min = 8, message = "Mật khẩu phải nhiều hơn 8 kí tự")
+    @Size(min = 6, message = "Mật khẩu phải nhiều hơn 6 kí tự")
     private String password;
 
     private int roleId;

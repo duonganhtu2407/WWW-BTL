@@ -71,7 +71,7 @@ public class AccountController {
             }
         } else {
             map.addAttribute("user", user);
-            map.addAttribute("message", "Tài khoản hoặc mật khẩu không đúng");
+            map.addAttribute("message", "Tài khoản hoặc mật khẩu không đúng.Vui lòng nhập lại");
             return "/web/account/login";
         }
     }
@@ -103,14 +103,12 @@ public class AccountController {
         userService.saveUserService(userDto);
         map.addAttribute("message", "success_register");
 
-        //mail here
-
         try {
             //config mail here
             StringBuilder sendText = new StringBuilder();
-            String from = "toychildshop@gmail.com";
+            String from = "shopmtv123@gmail.com";
             sendText.append(
-                    "<p>Bạn đã đăng ký thành công"
+                    "<p>Bạn đã đăng ký thành công <3. Bạn có thể đặt hàng tại shop bằng gmail này</p>"
             );
             MimeMessage mail = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mail);
@@ -121,7 +119,7 @@ public class AccountController {
             System.out.println(userDto.getEmail());
             helper.setTo(userDto.getEmail());
             helper.setReplyTo(from, from);
-            helper.setSubject("Thank You !");
+            helper.setSubject("Shop MTV");
             helper.setText(sendText.toString(), true);
             //send req
             mailSender.send(mail);
