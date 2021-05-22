@@ -20,7 +20,7 @@ import com.tvm.utils.MessageRespone;
 
 @Controller
 @RequestMapping("/admin/products")
-public class ProductController {
+public class   ProductController {
     @Autowired
     CategoryService categoryService;
     @Autowired

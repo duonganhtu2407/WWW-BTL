@@ -28,11 +28,10 @@
     <bean id="viewResolver"
           p:prefix="/WEB-INF/views/" p:suffix=".jsp"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <mvc:annotation-driven/>
     <mvc:resources mapping="/template/**" location="/template/"/>
     <mvc:resources mapping="/templateWeb/**" location="/templateWeb/"/>
     <mvc:resources mapping="/images/*" location="/images/"/>
-    <mvc:annotation-driven/>
-
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">

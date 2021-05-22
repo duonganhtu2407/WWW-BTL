@@ -1,4 +1,4 @@
-<%@include file="/common/taglib.jsp"%>
+ <%@include file="/common/taglib.jsp"%>
 
 
 <spring:eval expression="@property.getProperty('product.url')" var="url"/>

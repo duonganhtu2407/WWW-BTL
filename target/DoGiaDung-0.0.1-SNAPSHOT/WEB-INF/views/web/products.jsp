@@ -21,7 +21,7 @@
 		  <li><a href="index.html">Trang chủ</a></li>
 		  <li class="active">Sản phẩm</li>
 		  </ol>
-		  <h2>Không tìn thấy sản phẩm khuyến mãi</h2>
+		  <h2></h2>
 		  <div class="col-md-9 product-model-sec">
 			  <c:forEach  items="${product.listResult}" var="i">
 				  <div class="product-grid">

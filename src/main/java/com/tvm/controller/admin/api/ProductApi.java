@@ -70,15 +70,15 @@ public class ProductApi {
                 try {
                     String path = context.getRealPath("/images/" + file.getOriginalFilename());
                     File newfile = new File(path);
-                    System.out.println(path);
-                    if (newfile.exists()) {
-                        message = "error_upload_exist";
-                        return "redirect:" + productUrl + "/" + idCategory + "/edit/?message=" + message;
-                    } else {
+//                    System.out.println(path);
+//                    if (newfile.exists()) {
+//                        message = "error_upload_exist";
+//                        return "redirect:" + productUrl + "/" + idCategory + "/edit/?message=" + message;
+//                    } else {
                         file.transferTo(newfile);
                         productDto.setImage("/images/" + file.getOriginalFilename());
                         message = "insert_success";
-                    }
+//                    }
 
 
                 } catch (IllegalStateException e) {
@@ -94,17 +94,12 @@ public class ProductApi {
                 String path = context.getRealPath("/images/" + file.getOriginalFilename());
                 File newfile = new File(path);
                 try {
-                    if (newfile.exists()) {
-                        message = "error_upload_exist";
-                        return "redirect:" + productUrl + "/" + idCategory + "/edit/" + productDto.getId() + "?message=" + message;
-                    } else {
                         File oldfile = new File(context.getRealPath(productDto.getImage()));
                         oldfile.delete();
 
                         file.transferTo(newfile);
                         productDto.setImage("/images/" + file.getOriginalFilename());
                         message = "update_success";
-                    }
                 } catch (IllegalStateException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

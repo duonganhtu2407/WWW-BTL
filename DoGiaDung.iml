@@ -17,7 +17,6 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="DoGiaDung" />
-          <factory-entry name="toyZone" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

@@ -115,7 +115,7 @@
                                 </div>
                                 <c:if test="${not empty product.image}">
                                       <img style=" width: 200px; height: 200px; margin-left: 200px"  src='<c:url value="${product.image}"></c:url>'/>
-              						
+
                                     </c:if>
                                     <c:if test="${empty product.image}">
                                         

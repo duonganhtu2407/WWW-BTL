@@ -23,8 +23,8 @@
     <div class="items-sec">
         <c:forEach items="${products}" var="i">
             <div class="col-md-3 feature-grid">
-                <a href="<c:url value="${url}${i.idCategory}${detail}${i.id}"/>"><img
-                        src="<c:url value="${i.image}"/>"/>
+                <a href="<c:url value="${url}${i.idCategory}${detail}${i.id}"/>">
+                    <img src="<c:url value="${i.image}"/>"/>
                     <div class="arrival-info">
                         <h4>${i.name}</h4>
                         <c:if test="${i.discount>0}">
