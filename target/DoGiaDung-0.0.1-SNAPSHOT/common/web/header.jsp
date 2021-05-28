@@ -3,11 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
-<!DOCTYPE html>
-
 <spring:eval expression="@property.getProperty('user.login')" var="loginUrl"/>
 <spring:eval expression="@property.getProperty('product.discount')" var="discountPro"/>
 <spring:eval expression="@property.getProperty('cart.url')" var="cartUrl"/>
+<spring:eval expression="@property.getProperty('product.web.find')" var="findProduct"/>
 <spring:eval expression="@property.getProperty('category.products')" var="url"/>
 <spring:eval expression="@property.getProperty('page.page.product')" var="pageProp"/>
 <spring:eval expression="@property.getProperty('page.maxPageItem.product')" var="maxPageItemProp"/>
@@ -17,92 +16,120 @@
 <c:url var="productofcate" value="${url}"/>
 <c:url var="homeURl" value="${home}"/>
 <c:url value="${discountPro}" var="discount_url"></c:url>
-<div class="header-top">
-    <div class="header-bottom">
-        <div class="logo">
-            <h1><a href="${homeURl}">ShopMTV</a></h1>
-        </div>
-        <!---->
-        <div class="top-nav">
-            <ul class="memenu skyblue">
-                <li class="active"><a href="${homeURl}">TRANG CHỦ</a></li>
-
-                <li class="grid"><a href="${discount_url}?page=${pageProp}&&maxPageItem=${maxPageItemProp}">Khuyến
-                    Mãi</a>
-
-                </li>
-                <li class="grid"><a href="#">DANH MỤC</a>
-                    <div class="mepanel">
-                        <div class="row">
-                            <div class="col1 me-one">
-                                <ul>
-                                    <c:forEach var="i" items="${menuCate}">
-                                        <li>
-                                            <a href="${productofcate}${i.id}?page=${pageProp}&&maxPageItem=${maxPageItemProp}">${i.name}</a>
-                                        </li>
-                                    </c:forEach>
-
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-                <li class="grid"><a href="<c:url value="${cartUrl}"/>">Giỏ Hàng</a></li>
-
-            </ul>
-        </div>
-
-        <!---->
-        <div class="cart box_1">
-            <%if (request.getSession().getAttribute("gioHang") != null) {%>
-            <a href="<c:url value="${cartUrl}"/>">
-                <div id="carttotal" class="total">
-                    <span><%= ((SessionGioHang) request.getSession().getAttribute("gioHang")).getTotalPrice() %></span>
-                    (<span><%=((SessionGioHang) request.getSession().getAttribute("gioHang")).getTotalItem() %></span>)
-                </div>
-
-                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-            </a>
-            <%if (((SessionGioHang) request.getSession().getAttribute("gioHang")).getTotalItem() <= 0) {%>
-            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-            <%} else { %>
-            <p><a href="" class="simpleCart_empty">View Cart</a></p>
-            <%} %>
-            <%} else { %>
-            <a href="<c:url value="${cartUrl}"/>">
-                <div id="carttotal" class="total">
-                    <span>0</span>
-                    (<span>0</span>)
-                </div>
-
-                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-            </a>
-            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-            <%} %>
-
-
-            <div class="clearfix"></div>
-
-
+<c:url var="find_product" value="${findProduct}"></c:url>
+<c:url var="loginUrl" value="${loginUrl}"/>
+<!DOCTYPE html>
+<!-- header -->
+<div class="header" id="home">
+    <div class="container">
+        <ul>
             <%if (session.getAttribute("sessionUser") != null) {%>
-        </div>
-        <h3 class="b3">
-            <span class="label label-info">Welcome,<%=((SessionUser) request.getSession().getAttribute("sessionUser")).getFullName()%></span></a>
-            <a href="<c:url value='/logout'/>"><span class="label label-danger">Thoát</span></a>
-        </h3>
-        <div class="clearfix"></div>
-        <!---->
+            <li><i class="fa fa-user" aria-hidden="true"></i> <%=((SessionUser) request.getSession().getAttribute("sessionUser")).getFullName()%>
+                <a href="<c:url value='/logout'/>">,Thoát</a>
+            </li>
+            <%} else {%>
+            <li> <a href="${loginUrl}"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Đăng nhập </a></li>
+            <li> <a href="${user_regis}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Đăng kí </a></li>
+            <%}%>
+            <li><i class="fa fa-phone" aria-hidden="true"></i> HOTLINE : 0999999999</li>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> shopmtv123@gmail.com</li>
+        </ul>
     </div>
-    <%} else {%>
 </div>
-<h3>
-    <a href="<c:url value="${loginUrl}"/>"><span class="label label-info">Đăng Nhập</span></a>
-    <a href="${user_regis}"><span class="label label-info">Đăng ký</span></a>
-</h3>
-<div class="clearfix"></div>
-<!---->
+<!-- //header -->
+<!-- header-bot -->
+<div class="header-bot">
+    <div class="header-bot_inner_wthreeinfo_header_mid">
+        <div class="col-md-4 header-middle">
+            <form action="${find_product}" method="post">
+                <input id="name" type="search" name="name" placeholder="Tìm kiếm..." required="">
+                <input type="submit" value=" ">
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <!-- header-bot -->
+        <div class="col-md-4 logo_agile">
+            <h1><a href="${homeURl}">Shop<span>MTV</span><i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+        </div>
+        <!-- header-bot -->
+        <div class="col-md-4 agileits-social top_content">
+            <ul class="social-nav model-3d-0 footer-social w3_agile_social">
+                <li class="share">Share On : </li>
+                <li><a href="#" class="facebook">
+                    <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="twitter">
+                    <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="instagram">
+                    <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="pinterest">
+                    <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+            </ul>
+
+
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
 </div>
-<%}%>
-<div class="clearfix"></div>
+<!-- //header-bot -->
+<!-- banner -->
+<div class="ban-top">
+    <div class="container">
+        <div class="top_nav_left">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav menu__list">
+                            <li class="active menu__item"><a class="menu__link" href="${homeURl}">TRANG CHỦ <span class="sr-only">(current)</span></a></li>
+                            <li class=" menu__item menu__item--current"><a class="menu__link" href="${discount_url}?page=${pageProp}&&maxPageItem=${maxPageItemProp}">KHUYẾN MÃI</a></li>
+                            <li class="dropdown menu__item">
+                                <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DANH MỤC SẢN PHẨM <span class="caret"></span></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="agile_inner_drop_nav_info">
+                                        <div class="col-sm-3 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                <c:forEach var="i" items="${menuCate}">
+                                                    <li>
+                                                <a href="${productofcate}${i.id}?page=${pageProp}&&maxPageItem=${maxPageItemProp}">${i.name}</a>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class=" menu__item"><a class="menu__link" href="<c:url value="${cartUrl}"/>">GIỎ HÀNG</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="top_nav_right">
+            <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                <form action="<c:url value="${cartUrl}"/>" method="get" class="last">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="display" value="1">
+                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                </form>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 </div>
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

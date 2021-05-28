@@ -20,17 +20,17 @@
 			</ol>
 			<c:if test="${ not empty message }">
 				<div class="alert alert-danger">
-				<strong>${message}</strong>	
+				<strong>${message}</strong>
 				</div>
 			</c:if>
 			<h2>Đăng Nhập</h2>
 			<div class="col-md-6 log">
 				<form:form action="${urlLogin}" method="POST" modelAttribute="user" >
-					
-					<h5>Tài khoản</h5>	
-					
+
+					<h5>Tài khoản</h5>
+
 					<form:input path="account"/>
-					
+
 					<div style="color: red"><form:errors path="account"/></div>
 					<h5>Mật khẩu</h5>
 					<form:password path="password"/>
@@ -38,11 +38,10 @@
 					<input type="submit" value="Đăng Nhập" />
 					<a class="acount-btn" href="${urlReg}">Đăng Ký</a>
 				</form:form>
-				
 			</div>
-
 			<div class="clearfix"></div>
 		</div>
 	</div>
+
 </body>
 </html>

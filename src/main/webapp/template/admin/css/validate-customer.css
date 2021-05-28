@@ -5,3 +5,22 @@
 #fullName-error {
     color: #cc300c;
 }
+.logo_agile {
+    text-align: center;
+}
+.logo_agile span {
+    background: #2e6589;
+    padding: 0 17px;
+    font-weight: bold;
+    color: #fff;
+}
+.logo_agile h1 a {
+    font-weight: 300;
+    color: #000;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    position:relative;
+}
+.logo_agile h1 a:hover {
+    text-decoration:none;
+}

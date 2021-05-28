@@ -46,7 +46,7 @@
 							 		<h5 class="item_price">Giá : <fmt:formatNumber value="${product.price}" type="number"   maxFractionDigits = "3"/>  VND</h5>
 							 </c:if>							
 							<c:if test="${product.count>0}">
-								<h5 class="item_price">Số lượng : ${product.count}</h5>		
+								<h5 class="item_price">Còn hàng : ${product.count}</h5>
 								${product.content}
 								
 							<div class="check">
@@ -125,10 +125,10 @@ $('#btnthemGiohang').click(function (e) {
         data: JSON.stringify(data),
         success: function (result) {
         	if(result=='success'){
-        		swal("Thêm giỏ hàng thành công");
+        		swal("Sản phẩm đã được thêm vào giỏ");
         		
         	}else{
-        		swal("Số lượng của sản phẩm không phù hợp");
+        		swal("Số lượng sản phẩm còn lại không đủ.Vui lòng nhập lại");
         		
         	}
         	//location.reload();

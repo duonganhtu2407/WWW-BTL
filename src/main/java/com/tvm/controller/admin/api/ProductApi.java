@@ -70,17 +70,9 @@ public class ProductApi {
                 try {
                     String path = context.getRealPath("/images/" + file.getOriginalFilename());
                     File newfile = new File(path);
-//                    System.out.println(path);
-//                    if (newfile.exists()) {
-//                        message = "error_upload_exist";
-//                        return "redirect:" + productUrl + "/" + idCategory + "/edit/?message=" + message;
-//                    } else {
                         file.transferTo(newfile);
                         productDto.setImage("/images/" + file.getOriginalFilename());
                         message = "insert_success";
-//                    }
-
-
                 } catch (IllegalStateException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

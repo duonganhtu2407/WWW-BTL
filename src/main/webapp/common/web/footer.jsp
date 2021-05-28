@@ -4,7 +4,6 @@
 <spring:eval expression="@property.getProperty('user.login')" var="loginUrl"/>
 <spring:eval expression="@property.getProperty('product.discount')" var="discountPro"/>
 <spring:eval expression="@property.getProperty('cart.url')" var="cartUrl"/>
-<spring:eval expression="@property.getProperty('product.web.find')" var="findProduct"/>
 <spring:eval expression="@property.getProperty('home')" var="home"/>
 <spring:eval expression="@property.getProperty('user.register')" var="userRegis"/>
 <spring:eval expression="@property.getProperty('category.products')" var="url"/>
@@ -12,19 +11,12 @@
 <spring:eval expression="@property.getProperty('page.maxPageItem.product')" var="maxPageItemProp"/>
 <spring:eval expression="@property.getProperty('cart.url')" var="cartUrl"/>
 <c:url var="productofcate" value="${url}"/>
-<c:url var="find_product" value="${findProduct}"></c:url>
 <c:url var="homeURl" value="${home}"/>
 <c:url value="${discountPro}" var="discount_url"></c:url>
-<c:url value="${userRegis}" var="user_regis"></c:url>
+<c:url value="${loginUrl}" var="loginUrl"></c:url>
+<c:url value="${userRegis}" var="userRegis"></c:url>
 <!DOCTYPE html>
-<div class="subscribe">
-    <div class="container">
-        <form action="${find_product}" method="POST">
-            <input type="text" id="name" name="name" class="text">
-            <input type="submit" value="Tìm Kiếm">
-        </form>
-    </div>
-</div>
+
 <div class="footer">
     <div class="container">
         <div class="footer-grids">
@@ -43,8 +35,8 @@
             <div class="col-md-3 ftr-grid">
                 <h3>Tài khoản</h3>
                 <ul class="nav-bottom">
-                    <li><a href="login.html">Đăng nhập</a></li>
-                    <li><a href="#">Đăng ký</a></li>
+                    <li><a href="${loginUrl}">Đăng nhập</a></li>
+                    <li><a href="${user_regis}">Đăng ký</a></li>
                 </ul>
             </div>
             <div class="col-md-3 ftr-grid">
