@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import com.tvm.dto.ProductDto;
 import com.tvm.model.Product;
 import com.tvm.repository.ProductRepo;
-import com.tvm.service.ProductOrderService;
 import com.tvm.service.ProductService;
 import com.tvm.utils.Constant;
 
@@ -23,8 +22,6 @@ import com.tvm.utils.Constant;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepo productRepo;
-    @Autowired
-    ProductOrderService productOrderService;
     @Autowired
     ServletContext context;
 

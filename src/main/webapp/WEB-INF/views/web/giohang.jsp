@@ -95,7 +95,7 @@
 							</ul>
 							<div class="delivery">
 								 <p>Tổng tiền : <fmt:formatNumber value="${i.totalPrices}" type="number"   maxFractionDigits = "3"/>  VND</p>
-								 <span>Giao hàng từ 2 đến 3 ngày</span>
+								 <span>Sản phẩm có tại HCM</span>
 								 <div class="clearfix"></div>
 							</div>								
 					   </div>

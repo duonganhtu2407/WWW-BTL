@@ -25,7 +25,7 @@
 <body>
 <div class="main-content">
 		
-			<div class="main-content-inner">
+			<div class="main-content-inner1">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
 						<li><i class="ace-icon fa fa-home home-icon"></i> <a href="<c:url value='/admin/trang-chu'/>">Trang

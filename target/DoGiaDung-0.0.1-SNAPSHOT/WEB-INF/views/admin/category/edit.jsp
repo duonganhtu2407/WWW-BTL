@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="main-content">
-    <div class="main-content-inner">
+    <div class="main-content-inner1">
         <div class="breadcrumbs" id="breadcrumbs">
             <script type="text/javascript">
                 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -32,8 +32,9 @@
             </ul><!-- /.breadcrumb -->
         </div>
         <div class="page-content">
-            <div class="row">
-                <div class="col-xs-12">
+            <div class="row col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
                          <c:if test="${not empty message}">
 									<div class="alert alert-${alert}">
   										${message}

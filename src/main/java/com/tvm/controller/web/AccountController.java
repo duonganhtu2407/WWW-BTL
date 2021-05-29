@@ -113,8 +113,7 @@ public class AccountController {
             MimeMessage mail = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mail);
 
-//            SessionUser sessionUser = (SessionUser) session.getAttribute("sessionUser");
-//            UserDto userDtoMail = userService.findByIdUserService(sessionUser.getUserId());
+
             helper.setFrom(from, from);
             System.out.println(userDto.getEmail());
             helper.setTo(userDto.getEmail());

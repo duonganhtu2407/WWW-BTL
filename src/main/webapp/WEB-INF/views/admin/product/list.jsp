@@ -25,8 +25,8 @@
 
 <body>
 	<div class="main-content" id="main-content">
-					
-		
+
+
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
@@ -36,21 +36,21 @@
 								 danh mục</a></li>
 					<li><i class="ace-icon fa fa-home home-icon"></i> <a href="${url_product}/${idCategory}?page=${pageProp}&maxPageItem=${maxPageItemProp}">Quản Lí
 								Sản Phẩm</a></li>
-					
+
 					</ul>
 					<!-- /.breadcrumb -->
 					<div class="nav-search" id="nav-search">
 						<form:form action="${find_product}" method="POST" modelAttribute="product" class="form-search">
-								
+
 								<span class="input-icon">
 									<form:input  path="name" placeholder="Search ..." class="nav-search-input" id="name nav-search-input" autocomplete="off" />
 									<i class="ace-icon fa fa-search nav-search-icon"></i>
 								</span>
 						</form:form>
 					</div>
-					<!-- /.nav-search -->		
+					<!-- /.nav-search -->
 				</div>
-				
+
 				<div class="page-content">
 					<div class="row">
 						<div class="col-xs-12">
@@ -74,7 +74,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="row">
 								<div class="col-xs-12">
 									<div id="data-category" class="table-responsive">
@@ -103,22 +103,22 @@
 														<a class="btn btn-sm btn-primary btn-edit"
 																data-toggle="tooltip" title="Cập nhật" href='${url_product}/${idCategory}${edit}${item.id}'><i
 																class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
-																
-														<button id="btnDelete" idproduct="${item.id}" type="button" 
+
+														<button id="btnDelete" idproduct="${item.id}" type="button"
 																class="xoaproduct dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='Xóa sản phẩm'>
 																<span>
 																	<i class="fa fa-trash-o bigger-110 pink"></i>
 																			</span>
 															</button>
 														</td>
-																
+
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
 										<form action="${url_product}/${idCategory}" id="formSubmit" method="get">
 										<ul class="pagination" id="pagination"></ul>
-										<input type="hidden" value="" id="page" name="page" /> 
+										<input type="hidden" value="" id="page" name="page" />
 										<input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
 										</form>
 									</div>
@@ -128,8 +128,8 @@
 					</div>
 				</div>
 			</div>
-		
-		
+
+
 	</div>
 	<script>
 		var totalPages = ${product.totalPage};

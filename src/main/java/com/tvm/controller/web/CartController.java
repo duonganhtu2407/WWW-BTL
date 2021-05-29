@@ -32,8 +32,6 @@ import com.tvm.dto.SessionUser;
 import com.tvm.dto.UserDto;
 import com.tvm.interceptor.Auth;
 import com.tvm.interceptor.Auth.Role;
-import com.tvm.service.OrderService;
-import com.tvm.service.ProductOrderService;
 import com.tvm.service.ProductService;
 import com.tvm.service.UserService;
 
@@ -41,12 +39,6 @@ import com.tvm.service.UserService;
 public class CartController {
     @Autowired
     ProductService productService;
-
-    @Autowired
-    ProductOrderService productOrderService;
-
-    @Autowired
-    OrderService orderService;
 
     @Autowired
     UserService userService;

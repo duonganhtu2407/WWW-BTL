@@ -6,6 +6,7 @@
 
 
 <spring:eval expression="@property.getProperty('user.url')" var="url"/>
+<spring:eval expression="@property.getProperty('user.add')" var="add"/>
 <spring:eval expression="@property.getProperty('user.edit')" var="edit"/>
 <spring:eval expression="@property.getProperty('user.api')" var="api"/>
 <spring:eval expression="@property.getProperty('user.find')" var="find"/>
@@ -16,6 +17,7 @@
 <c:url var="edit_user" value="${edit}"/>
 <c:url var="api_user" value="${api}"/>
 <c:url var="find_user" value="${find}"/>
+<c:url var="add_user" value="${add}"/>
 
 <html>
 
@@ -64,7 +66,7 @@
 											<a flag="info"
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip" title='Thêm khách hàng'
-												href='${edit_user}'> <span> <i
+											   href="<c:url value='/admin/user/add'/>"> <span> <i
 													class="fa fa-plus-circle bigger-110 purple"></i>
 											</span>
 											</a>

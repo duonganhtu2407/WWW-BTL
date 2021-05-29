@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="main-content">
-    <div class="main-content-inner">
+    <div class="main-content-inner1">
         <div class="breadcrumbs" id="breadcrumbs">
             <script type="text/javascript">
                 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -61,38 +61,38 @@
                                 	<div id="phone"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Tên tài khoản</label>
-                                <div class="col-sm-9">
-                                	<form:input path="account" class="col-xs-10 col-sm-5"/>
-                                	<div id="account"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Mật khẩu</label>
-                                <div class="col-sm-9">
-                                	<form:password path="password" showPassword="true" class="col-xs-10 col-sm-5"/>
-                                	<div id="password"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right">Quyền</label>
-                                <div class="col-sm-9">
-                                <form:select path="roleId" class="col-xs-10 col-sm-5">
-	                                <c:forEach items="${roles}" var="r" varStatus="status">
-								        <c:choose>
-								            <c:when test="${r.id eq user.roleId && not empty user.roleId}">
-								                <option value="${r.id}" selected="selected">${r.name}</option>
-								            </c:when>
-								            <c:otherwise>
-								                <option value="${r.id}">${r.name}</option>
-								            </c:otherwise>
-								        </c:choose> 
-								    </c:forEach>
-                                   
-                                </form:select>
-                               
-                                
+<%--                            <div class="form-group">--%>
+<%--                                <label class="col-sm-3 control-label no-padding-right">Tên tài khoản</label>--%>
+<%--                                <div class="col-sm-9">--%>
+<%--                                	<form:input path="account" class="col-xs-10 col-sm-5"/>--%>
+<%--                                	<div id="account"></div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <label class="col-sm-3 control-label no-padding-right">Mật khẩu</label>--%>
+<%--                                <div class="col-sm-9">--%>
+<%--                                	<form:password path="password" showPassword="true" class="col-xs-10 col-sm-5"/>--%>
+<%--                                	<div id="password"></div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <label class="col-sm-3 control-label no-padding-right">Quyền</label>--%>
+<%--                                <div class="col-sm-9">--%>
+<%--                                <form:select path="roleId" class="col-xs-10 col-sm-5">--%>
+<%--	                                <c:forEach items="${roles}" var="r" varStatus="status">--%>
+<%--								        <c:choose>--%>
+<%--								            <c:when test="${r.id eq user.roleId && not empty user.roleId}">--%>
+<%--								                <option value="${r.id}" selected="selected">${r.name}</option>--%>
+<%--								            </c:when>--%>
+<%--								            <c:otherwise>--%>
+<%--								                <option value="${r.id}">${r.name}</option>--%>
+<%--								            </c:otherwise>--%>
+<%--								        </c:choose>--%>
+<%--								    </c:forEach>--%>
+
+<%--                                </form:select>--%>
+
+
                                 </div>
                             </div>
                              
@@ -106,7 +106,9 @@
                                     </c:if>
                                 </div>
                             </div>
-                           
+                            <form:hidden path="account" id="acount" />
+                            <form:hidden path="password" id="password" />
+                            <form:hidden path="roleId" id="roleId" />
                             <form:hidden path="id" id="id"/>
                         </form:form>
                 </div>

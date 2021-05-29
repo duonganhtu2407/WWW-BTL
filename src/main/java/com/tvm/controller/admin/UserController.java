@@ -50,7 +50,6 @@ public class UserController {
         map.addAttribute("user", userDto);
 
         return "admin/user/list";
-
     }
 
     @RequestMapping(path = "/edit", method = RequestMethod.GET)
@@ -78,6 +77,34 @@ public class UserController {
         }
         map.addAttribute("user", userDto);
         return "admin/user/edit";
+    }
+
+
+    @RequestMapping(path = "/add", method = RequestMethod.GET)
+    public String viewAddUser(@RequestParam(value = "message", required = false) String message, ModelMap map) {
+        UserDto userDto = new UserDto();
+
+        if (message != null) {
+            Map<String, String> mesMap = messageRespone.getMessage(message);
+            map.addAttribute("message", mesMap.get("message"));
+            map.addAttribute("alert", mesMap.get("alert"));
+        }
+        map.addAttribute("user", userDto);
+        return "admin/user/add";
+    }
+
+    @RequestMapping(path = "/add/{idUser}", method = RequestMethod.GET)
+    public String viewAddUser(@PathVariable int idUser,
+                               @RequestParam(value = "message", required = false) String message, ModelMap map) {
+        UserDto userDto = new UserDto();
+        userDto = userService.findByIdUserService(idUser);
+        if (message != null) {
+            Map<String, String> mesMap = messageRespone.getMessage(message);
+            map.addAttribute("message", mesMap.get("message"));
+            map.addAttribute("alert", mesMap.get("alert"));
+        }
+        map.addAttribute("user", userDto);
+        return "admin/user/add";
     }
 
     @RequestMapping(path = "/find", method = RequestMethod.POST)
